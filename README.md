@@ -32,8 +32,8 @@ This repo is based on [this reference](https://medium.com/@leolewan/writing-a-no
 ## how to run and test the endpoint
 Prerequisites
 ```
-$ node --version
-v12.18.2
+  $ node --version
+  v12.18.2
 ```
 Run
 ```bash
