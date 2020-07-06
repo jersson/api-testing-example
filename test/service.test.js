@@ -1,4 +1,4 @@
-'option strict'
+'use strict';
 const axios = require('axios/index');
 const Service = require('../src/service');
 

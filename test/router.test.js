@@ -1,4 +1,4 @@
-'option strict'
+'use strict';
 const Controller = require('../src/controller');
 
 const getSpy = jest.fn();

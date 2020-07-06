@@ -1,4 +1,4 @@
-'option strict'
+'use strict';
 const axios = require('axios/index');
 const path = 'https://jsonplaceholder.typicode.com/posts';
 

@@ -1,4 +1,4 @@
-'option strict'
+'use strict';
 const router = require('../src/router');
 
 const useSpy = jest.fn();

@@ -1,4 +1,4 @@
-'option strict'
+'use strict';
 const Service = require('./service');
 
 const Controller = {
