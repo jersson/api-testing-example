@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "node .",
-    "test": "jest test/**.test.js", 
-    "coverage": "jest test/**.test.js --coverage" 
+    "test": "jest test/**.test.js",
+    "coverage": "jest test/**.test.js --coverage"
   },
   "repository": {
     "type": "git",
