@@ -1,8 +1,10 @@
 # api-testing-example
 
-Cool examples using [jest](https://jestjs.io/) to test a [node](https://nodejs.org/en/) api
+![Node.js CI](https://github.com/jersson/api-testing-example/workflows/Node.js%20CI/badge.svg)
 
-This repo is based on [this reference](https://medium.com/@leolewan/writing-a-nodejs-api-fully-tested-with-jest-5d449361c8a7). 
+Cool and simple examples using [jest](https://jestjs.io/) to test a [node](https://nodejs.org/en/) api
+
+The first version of this repo was based on [this post](https://medium.com/@leolewan/writing-a-nodejs-api-fully-tested-with-jest-5d449361c8a7). 
 
 ## Summary
   - [what's the project structure?](#whats-the-project-structure)
@@ -40,7 +42,7 @@ Run
   $ npm start
 ```
 
-Test
+Test the endpoint
 ```
   $ curl localhost:3000/posts
 ```
