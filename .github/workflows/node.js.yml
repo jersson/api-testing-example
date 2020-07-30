@@ -5,9 +5,8 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - v*
 
 jobs:
   build:
@@ -20,14 +19,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Print release version
+      run: | 
+        echo This is the actual version \'$RELEASE_VERSION\'
+        echo `git describe --tags`
+        RELEASE_VERSION=`git describe --tags`
+        echo This is the actual version \'$RELEASE_VERSION\'
+      env:
+        RELEASE_VERSION: unversioned
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run coverage
-    - name: Get release version
-      run: echo ::set-env name=RELEASE_VERSION::$( git describe --tags )
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:
