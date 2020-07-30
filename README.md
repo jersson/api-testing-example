@@ -10,6 +10,8 @@ Cool and simple examples using [jest](https://jestjs.io/) to test a [node](https
   - [what's the project structure?](#whats-the-project-structure)
   - [how to run and test the endpoint](#how-to-run-and-test-the-endpoint)
   - [how to test the code](#how-to-test-the-code)
+  - [how to generate the coverage report](#how-to-generate-the-coverage-report)
+  - [about the sonarcloud integration](#about-the-sonarcloud-integration)
   - [licensing](#licensing)
 
 ## what's the project structure?
@@ -61,7 +63,7 @@ We're using [Jest](https://jestjs.io/), you can run this npm script:
   Time:        2.269 s
 ```
 
-## how to generate coverage report
+## how to generate the coverage report
 We're using [istanbul](https://istanbul.js.org/) and it's included with Jest, you can run this npm script:
 ```
   $ npm run coverage
@@ -87,6 +89,9 @@ We're using [istanbul](https://istanbul.js.org/) and it's included with Jest, yo
 ```
 
 Also you can check the results in the generated `coverage\lcov-report\index.html` file
+
+## about the sonarcloud integration
+This repo is linked to a [project in sonarcloud](https://sonarcloud.io/dashboard?id=jersson_api-testing-example) and that services it's free only if your source code is written with non commercial goals. You can check this [document](https://sonarcloud.io/documentation/integrations/github/) and this [GitHub Action](https://github.com/marketplace/actions/sonarcloud-scan) information if you want to know more about the integration.
 
 ## licensing
 [MIT](./LICENSE)
