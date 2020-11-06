@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node .",
     "test": "jest test/**.test.js",
-    "coverage": "jest test/**.test.js --coverage"
+    "coverage": "jest test/**.test.js --coverage", 
+    "postinstall": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "jest": "^26.1.0",
-    "@types/jest": "^26.0.3"
+    "@types/jest": "^26.0.3",
+    "husky": "^5.0.0-beta.0",
+    "jest": "^26.1.0"
   }
 }
