@@ -93,5 +93,29 @@ Also you can check the results in the generated `coverage\lcov-report\index.html
 ## about the sonarcloud integration
 This repo is linked to a [project in sonarcloud](https://sonarcloud.io/dashboard?id=jersson_api-testing-example) and that services it's free only if your source code is written with non commercial goals. You can check this [document](https://sonarcloud.io/documentation/integrations/github/) and this [GitHub Action](https://github.com/marketplace/actions/sonarcloud-scan) information if you want to know more about the integration.
 
+## about the git hook scripts
+We're using [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) scripts using [husky](https://typicode.github.io/husky/#/), what a nice tool!
+
+So, anytime you'll make a commit you'll see something like that
+```
+  $ git commit -am 'feat: add basic husky support'
+  > jest test/**.test.js
+
+  PASS  test/index.test.js
+  PASS  test/service.test.js
+  PASS  test/router.test.js
+  PASS  test/controller.test.js
+
+  Test Suites: 4 passed, 4 total
+  Tests:       7 passed, 7 total
+  Snapshots:   0 total
+  Time:        1.812 s
+  Ran all test suites matching /test\/controller.test.js|test\/index.test.js|test\/router.test.js|test\/service.test.js/i.
+  [master 508a8eb] feat: add basic husky support
+  4 files changed, 16 insertions(+), 3 deletions(-)
+  create mode 100644 .husky/.gitignore
+  create mode 100755 .husky/pre-commit
+```
+
 ## licensing
 [MIT](./LICENSE)
