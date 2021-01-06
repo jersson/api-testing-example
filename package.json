@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/jersson/api-testing-example#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
