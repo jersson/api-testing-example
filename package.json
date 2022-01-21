@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "=16.6.2"
+  },
   "scripts": {
     "start": "node .",
     "test": "jest test/**.test.js",
