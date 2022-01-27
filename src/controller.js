@@ -1,15 +1,15 @@
 'use strict';
+const { list } = require('./service');
 const Service = require('./service');
 
 const Controller = {
-    getPosts(req,res,next) {
-        return Service.list()
-                .then((posts) => {
-                    return res.status(201).json(posts);
-                })
-                .catch((err) => {
-                    return next(err);
-                });
+    async getPosts(req, res, next) {
+        try {
+            const posts = await Service.list();
+            return res.status(201).json(posts);
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 

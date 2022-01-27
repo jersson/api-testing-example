@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node .",
     "test": "jest test/**.test.js",
-    "coverage": "jest test/**.test.js --coverage", 
+    "coverage": "jest test/**.test.js --coverage",
     "postinstall": "husky install"
   },
   "repository": {
@@ -30,8 +30,11 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.3",
+    "@types/sinon": "^10.0.8",
     "husky": "^5.0.0-beta.0",
-    "jest": "^26.1.0"
+    "jest": "^26.1.0",
+    "sinon": "^12.0.1"
   }
 }
