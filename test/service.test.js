@@ -20,6 +20,7 @@ describe('should test Service', () => {
         axiosStub.returns(responseData);
         const response = await Service.list();
         expect(response).toEqual(responseData.data);
+        // expect(axiosStub).toBeCalledTimes(1);
     });
 
     test('when #list method fails', async() => {
@@ -31,6 +32,7 @@ describe('should test Service', () => {
             throw new Error('default error to invalidate a false positive test case');
         } catch (error) {
             expect(error.message).toEqual('error');
+            // expect(axiosStub).toBeCalledTimes(1);
         }
     });
 });
