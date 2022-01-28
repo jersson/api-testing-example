@@ -14,29 +14,38 @@ const mockResponse = () => {
 jest.mock('../src/service');
 
 describe('should test controller', () => {
+    afterEach(() => {
+        jest.resetAllMocks();
+    })
+
+    afterAll(() => {
+        jest.restoreAllMocks();
+    })
+
     test('when #getPost method method succeeds', async() => {
         const posts = [{},{}];
         const response = mockResponse();
         
         Service.list.mockImplementation(() => Promise.resolve(posts));
         await Controller.getPosts(null, response, null);
-
+        
+        expect(Service.list).toBeCalledTimes(1);
         expect(response.status).toBeCalledWith(201);
         expect(response.json).toBeCalledWith(posts)
     });
 
     test('when #getPost method method fails', async() => {
-        const error = new Error();
+        const errorMessage = 'Internal Service Error';
+        const errorData = new Error(errorMessage);
         const response = mockResponse();
         const next = jest.fn();
         
-        Service.list.mockImplementation(() => Promise.reject(error));
+        Service.list.mockImplementation(() => Promise.reject(errorData));
         await Controller.getPosts(null, response, next);
-
-        expect(next).toBeCalledWith(error);
-    });
-
-    afterAll(() => {
-        jest.resetAllMocks();
+        
+        expect(Service.list).toBeCalledTimes(1);
+        expect(next).toBeCalledWith(errorData);
+        expect(response.status).not.toBeCalled();
+        expect(response.json).not.toBeCalled();
     });
 });
