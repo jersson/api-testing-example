@@ -1,38 +1,42 @@
 'use strict';
 const axios = require('axios');
-const sinon = require('sinon');
-const { get } = require('express/lib/request');
 const Service = require('../src/service');
 
+jest.mock('axios');
 
 describe('should test Service', () => {
-    let axiosStub; 
-    beforeAll(() => {
-        axiosStub = sinon.stub(axios, 'get');
-    });
+    afterEach(() => {
+        jest.resetAllMocks();
+    })
 
     afterAll(() => {
-        axiosStub.restore();
-    });
+        jest.restoreAllMocks();
+    })
 
-    test('when #list method succeeds', async() => {
-        const responseData = { data: [{}, {}]};
-        axiosStub.returns(responseData);
+    test('when #list method succeeds', async () => {
+        const responseData = {
+            data: {
+                field: 'field',
+            }
+        };
+        axios.get.mockImplementationOnce(() => Promise.resolve(responseData));
+
         const response = await Service.list();
         expect(response).toEqual(responseData.data);
-        // expect(axiosStub).toBeCalledTimes(1);
+        expect(axios.get).toHaveBeenCalledTimes(1);
     });
 
-    test('when #list method fails', async() => {
-        const error = new Error('error');
-        axiosStub.rejects(error);
+    test('when #list method fails', async () => {
+        const errorMessage = 'Network Error';
         try {
-            const response = await Service.list();
-            console.log(response);
+            const errorData = new Error(errorMessage);
+            axios.get.mockImplementationOnce(() => Promise.reject(errorData));
+            await Service.list();
             throw new Error('default error to invalidate a false positive test case');
         } catch (error) {
-            expect(error.message).toEqual('error');
-            // expect(axiosStub).toBeCalledTimes(1);
+            expect(error.message).toEqual(errorMessage);
+            expect(axios.get).rejects;
+            expect(axios.get).toHaveBeenCalledTimes(1);
         }
     });
 });
