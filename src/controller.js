@@ -1,5 +1,4 @@
 'use strict';
-const {list} = require('./service');
 const Service = require('./service');
 
 const Controller = {
