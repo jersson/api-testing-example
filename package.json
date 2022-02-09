@@ -13,6 +13,7 @@
     "start": "node .",
     "test": "jest test/**.test.js",
     "coverage": "jest test/**.test.js --coverage",
+    "lint": "npx eslint .",
     "postinstall": "husky install"
   },
   "repository": {
