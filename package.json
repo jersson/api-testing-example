@@ -27,9 +27,12 @@
   "homepage": "https://github.com/jersson/api-testing-example#readme",
   "dependencies": {
     "axios": "^0.21.2",
+    "ci": "^2.1.1",
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.3",
     "husky": "^5.2.0",
