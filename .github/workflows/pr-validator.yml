@@ -22,6 +22,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+  
+  validate:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
     - run: npm ci --ignore-scripts
     - run: npm audit
     - run: npm run lint
