@@ -9,7 +9,7 @@ on:
       - master
     
 jobs:
-  prepare:
+  validate:
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,16 +18,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: use node ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-  
-  validate:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-    - run: npm ci --ignore-scripts
-    - run: npm audit
-    - run: npm run lint
-    - run: npm test
+        node-version: ${{ matrix.node-version }}  
+    - name: clean install
+      run: npm ci --ignore-scripts
+    - name: audit dependencies
+      run: npm audit
+    - name: check coding style
+      run: npm run lint
+    - name: test the code
+      run: npm test
