@@ -51,7 +51,7 @@ Test the endpoint
 ## how to test the code
 We're using [Jest](https://jestjs.io/), you can run this npm script:
 ```
-  $ npm test
+  $ npm run test:summary
   PASS  test/index.test.js
   PASS  test/router.test.js
   PASS  test/controller.test.js
@@ -62,6 +62,7 @@ We're using [Jest](https://jestjs.io/), you can run this npm script:
   Snapshots:   0 total
   Time:        2.269 s
 ```
+**Tip**: You can also try the `npm test` or `npm run test:verbose` scripts :smile:
 
 ## how to generate the coverage report
 We're using [istanbul](https://istanbul.js.org/) and it's included with Jest, you can run this npm script:

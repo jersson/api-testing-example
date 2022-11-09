@@ -8,6 +8,7 @@ const Service = {
       const response = await axios.get(path);
       return response.data;
     } catch (error) {
+      console.log(error);
       throw error;
     }
   },
