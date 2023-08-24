@@ -1,13 +1,13 @@
 {
   "name": "api-testing-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "engines": {
-    "node": "=16.6.2"
+    "node": "=18.2.0"
   },
   "scripts": {
     "start": "node .",
@@ -35,7 +35,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.1.0",
+    "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/jest": "^26.0.3",
     "eslint": "^8.8.0",
