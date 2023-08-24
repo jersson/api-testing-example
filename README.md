@@ -37,7 +37,7 @@ Cool and simple examples using [jest](https://jestjs.io/) to test a [node](https
 Prerequisites
 ```
   $ node --version
-  v16.6.2
+  v18.2.0
 ```
 Run
 ```
