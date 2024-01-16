@@ -20,7 +20,9 @@ jobs:
     - name: use Node.js® ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ matrix.node-version }}        
+    - name: generate package-lock file
+      run: npm install --package-lock-only
     - name: clean install
       run: npm ci --ignore-scripts
     - name: check coding style
