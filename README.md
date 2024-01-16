@@ -7,11 +7,15 @@
 Cool and simple examples using [jest](https://jestjs.io/) to test a [node](https://nodejs.org/en/) API. The first version of this repo was based on [this post](https://medium.com/@leolewan/writing-a-nodejs-api-fully-tested-with-jest-5d449361c8a7). 
 
 ## Summary
+- [api-testing-example](#api-testing-example)
+  - [Summary](#summary)
   - [what's the project structure?](#whats-the-project-structure)
+  - [prerequisites](#prerequisites)
   - [how to run and test the endpoint](#how-to-run-and-test-the-endpoint)
   - [how to test the code](#how-to-test-the-code)
   - [how to generate the coverage report](#how-to-generate-the-coverage-report)
   - [about the sonarcloud integration](#about-the-sonarcloud-integration)
+  - [about the git hook scripts](#about-the-git-hook-scripts)
   - [licensing](#licensing)
 
 ## what's the project structure?
@@ -33,25 +37,30 @@ Cool and simple examples using [jest](https://jestjs.io/) to test a [node](https
       └── service.test.js
 ```
 
-## how to run and test the endpoint
-Prerequisites
-```
+## prerequisites
+```bash 
   $ node --version
-  v18.2.0
+  v18.17.1
 ```
+> To handle:
+> - Versioning: [nvm](https://github.com/nvm-sh/nvm)
+> - Packages: [yarn](https://yarnpkg.com/)
+
+## how to run and test the endpoint
+
 Run
-```
-  $ npm start
+```bash
+  $ yarn start
 ```
 
 Test the endpoint
-```
+```bash
   $ curl localhost:3000/posts
 ```
 ## how to test the code
-We're using [Jest](https://jestjs.io/), you can run this npm script:
-```
-  $ npm run test:summary
+We're using [Jest](https://jestjs.io/), you can run:
+```bash
+  $ yarn test:summary
   PASS  test/index.test.js
   PASS  test/router.test.js
   PASS  test/controller.test.js
@@ -62,12 +71,12 @@ We're using [Jest](https://jestjs.io/), you can run this npm script:
   Snapshots:   0 total
   Time:        2.269 s
 ```
-**Tip**: You can also try the `npm test` or `npm run test:verbose` scripts :smile:
+**Tip**: You can also try the `yarn test` or `yarn test:verbose` scripts :smile:
 
 ## how to generate the coverage report
-We're using [istanbul](https://istanbul.js.org/) and it's included with Jest, you can run this npm script:
-```
-  $ npm run coverage
+We're using [istanbul](https://istanbul.js.org/) and it's included with Jest, you can run this script:
+```bash
+  $ yarn coverage
   PASS  test/index.test.js
   PASS  test/router.test.js
   PASS  test/controller.test.js
@@ -98,7 +107,7 @@ This repo is linked to a [project in sonarcloud](https://sonarcloud.io/dashboard
 We're using [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) scripts using [husky](https://typicode.github.io/husky/#/), what a nice tool!
 
 So, anytime you'll make a commit you'll see something like that
-```
+```bash
   $ git commit -am 'feat: add basic husky support'
   > jest test/**.test.js
 
