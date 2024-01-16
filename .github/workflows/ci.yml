@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}        
     - name: generate package-lock file
-      run: npm install --package-lock-only
+      run: npm install --package-lock-only --ignore-scripts
     - name: clean install
       run: npm ci --ignore-scripts
     - name: check coding style
